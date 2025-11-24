@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+        <style>
+        html, body {
+            background-color: #ffffff;
+        }
+        .ol-control > * {
+            background-color: #f8f8f8!important;
+            color: #444444!important;
+            border-radius: 0px;
+        }
+        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
+            color: #444444!important;
+        }
+        .search-layer-input-search {
+            background-color: #f8f8f8!important;
+        }
+        .ol-control > *:focus, .ol-control >*:hover {
+            background-color: rgba(248, 248, 248, 0.3)!important;
+        } 
+        .ol-control {
+            background-color: rgba(255,255,255,1) !important;
+            padding: 2px !important;
+        } 
+		header {
+			background-color:#000000;
+			padding: 5px 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+		}
+		header img {
+			height: 50px;
+		}
+		header h1 {
+			margin: 0;
+			font-size: 30px;
+			color: white;
+		}
+        </style>
+
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>WEBGIS OBJEK WISATA BUDAYA SLEMAN</title>
+    </head>
+    <body>
+	<header>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Lambang_Kabupaten_Sleman.png" alt="Logo Sleman">
+		<h1>Objek Wisata Budaya & Sejarah Kabupaten Sleman</h1>
+	</header>
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/photon-geocoder-autocomplete.min.js"></script>
+        <script src="layers/WilayahAdministrasiKecamatan_1.js"></script><script src="layers/KawasanCagarBudaya_2.js"></script><script src="layers/BatasWilayahKecamatan_3.js"></script><script src="layers/JaringanJalan_4.js"></script><script src="layers/RuteTransJogja_5.js"></script><script src="layers/HalteTransJogja_6.js"></script><script src="layers/ObjekWisataCandi_7.js"></script><script src="layers/ObjekWisataMuseum_8.js"></script>
+        <script src="styles/WilayahAdministrasiKecamatan_1_style.js"></script><script src="styles/KawasanCagarBudaya_2_style.js"></script><script src="styles/BatasWilayahKecamatan_3_style.js"></script><script src="styles/JaringanJalan_4_style.js"></script><script src="styles/RuteTransJogja_5_style.js"></script><script src="styles/HalteTransJogja_6_style.js"></script><script src="styles/ObjekWisataCandi_7_style.js"></script><script src="styles/ObjekWisataMuseum_8_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>
+		
+			<style>
+    .ol-scale-line {
+        left: 30px !important;
+        bottom: 0.01px !important;
+    }
+</style>
+
+<script>
+    var scaleLineControl = new ol.control.ScaleLine({
+        units: 'metric', 
+        bar: false,        
+        text: true,        
+        minWidth: 100  
+    });
+    map.addControl(scaleLineControl);
+</script>
+<style>
+.sumber-data {
+    position: absolute;
+    bottom: 10px;   
+    left: 10px;    /* pindah dari right ke left */
+    background: rgba(255,255,255,0.9);
+    padding: 6px 10px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+</style>
+
+<div class="sumber-data">
+    <strong>Sumber Data</strong><br>
+    1. Geoportal Daerah Istimewa Yogyakarta<br>
+	2. Dinas Pariwisata Kabupaten Sleman<br>
+    3. Rupa Bumi Indonesia Skala 1:25.000 BIG
+</div>
+
+<style>
+.north-arrow {
+    position: absolute;
+    bottom: 100px;   
+    left: 10px;    /* pindah dari right ke left */
+    width: 100px;    
+    opacity: 0.9;   
+}
+</style>
+
+<img src="https://png.pngtree.com/png-clipart/20230114/original/pngtree-8-directions-of-the-compass-png-image_8908732.png" 
+     alt="North Arrow" class="north-arrow">
+    </body>
+</html>
